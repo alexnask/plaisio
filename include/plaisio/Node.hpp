@@ -3,6 +3,8 @@
 
 #include <plaisio/Beam.hpp>
 #include <plaisio/Hinge.hpp>
+#include <plaisio/Force.hpp>
+#include <plaisio/Moment.hpp>
 
 #include <vector>
 
@@ -12,6 +14,9 @@ struct Node {
 
     std::vector<Beam*> beams;
     std::vector<Hinge> hinges;
+
+    Force force;
+    Moment moment;
 };
 
 #endif//__NODE_H
