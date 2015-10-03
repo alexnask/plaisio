@@ -8,15 +8,17 @@
 
 #include <vector>
 
-struct Node {
-    double x;
-    double z;
+namespace plaisio {
+    struct Node {
+        double x;
+        double z;
 
-    std::vector<Beam*> beams;
-    std::vector<Hinge> hinges;
+        std::vector<Beam*> beams;
+        std::vector<Hinge> hinges;
 
-    Force force;
-    Moment moment;
-};
+        Force force;
+        Moment moment;
+    };
+}
 
 #endif//__NODE_H
