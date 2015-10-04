@@ -14,6 +14,8 @@ namespace math {
         Angle operator + (const Angle& other) const;
         Angle operator - (const Angle& other) const;
 
+        bool operator == (const Angle& other) const;
+
         // Utility function
         double inline sin() const;
         double inline cos() const;

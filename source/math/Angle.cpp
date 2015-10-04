@@ -30,6 +30,10 @@ namespace math {
         return *this + (-other);
     }
 
+    bool Angle::operator == (const Angle& other) const {
+        return value == other.value || value == M_PI*2 + other.value;
+    }
+
     double inline Angle::sin() const {
         return ::sin(value);
     }
