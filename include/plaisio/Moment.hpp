@@ -2,14 +2,12 @@
 #define __MOMENT_H
 
 namespace plaisio {
-    class Moment {
-    private:
+    struct Moment {
         double x;
         double z;
 
         double magnitude;
 
-    public:
         Moment(double _x, double _z, double _magnitude);
 
         Moment operator - () const;

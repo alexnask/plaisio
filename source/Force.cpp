@@ -30,9 +30,9 @@ namespace plaisio {
     std::pair<Force, Force> Force::components(double xAngle, double zAngle) const {
         assert(abs(xAngle - zAngle) == M_PI/2);
 
-        double newX = -magnitude * cos(xAngle);
-        double newZ = magnitude * sin(zAngle);
-        if (xAngle - zAngle < 0) {
+        double newX = magnitude * cos(angle - xAngle);
+        double newZ = magnitude * sin(angle - xAngle);
+        if (xAngle - zAngle > 0) {
             newZ = -newZ;
         }
 

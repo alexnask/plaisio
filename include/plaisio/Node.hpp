@@ -14,6 +14,8 @@ namespace plaisio {
         double z;
 
         std::vector<Beam*> beams;
+        // TODO: Make sure all beams in hinges are in the beams vector
+        // Also, make sure no beam appears twice in hinges
         std::vector<Hinge> hinges;
 
         Force force;

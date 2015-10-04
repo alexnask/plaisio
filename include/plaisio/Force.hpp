@@ -6,8 +6,7 @@
 #include <utility>
 
 namespace plaisio {
-    class Force {
-    private:
+    struct Force {
         double x;
         double z;
 
@@ -15,7 +14,6 @@ namespace plaisio {
         double angle;
         double magnitude;
 
-    public:
         Force(double _x, double _z, double _angle, double _magnitude);
 
         Force operator - () const;
