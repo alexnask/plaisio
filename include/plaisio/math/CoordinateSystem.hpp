@@ -2,6 +2,8 @@
 #define __COORDINATE_SYSTEM_H
 
 #include <plaisio/math/Angle.hpp>
+#include <utility>
+
 
 namespace plaisio {
 namespace math {
@@ -16,6 +18,8 @@ namespace math {
         static CoordinateSystem Global;
 
         CoordinateSystem(Angle _xAngle, Angle _zAngle, double _originX, double _originZ);
+
+        std::pair<double, double> localCoordinates(double oX, double oZ, const CoordinateSystem& other = Global);
 
         bool operator == (const CoordinateSystem& other) const;
     };
