@@ -13,7 +13,7 @@ namespace math {
 
         CoordinateSystem coordSystem;
 
-        Vector(double _x, double _z, CoordinateSystem _coordSystem);
+        Vector(double _x, double _z, CoordinateSystem _coordSystem = CoordinateSystem::Global);
 
         double magnitude() const;
 
