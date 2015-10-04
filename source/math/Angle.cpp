@@ -31,7 +31,7 @@ namespace math {
     }
 
     bool Angle::operator == (const Angle& other) const {
-        return value == other.value || value == M_PI*2 + other.value;
+        return value == other.value || value == M_PI*2 + other.value || 2*M_PI + value == other.value;
     }
 
     double inline Angle::sin() const {
