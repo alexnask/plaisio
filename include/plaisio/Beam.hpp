@@ -1,7 +1,6 @@
 #ifndef __BEAM_H
 #define __BEAM_H
 
-#include <plaisio/Node.hpp>
 #include <plaisio/Material.hpp>
 #include <plaisio/Force.hpp>
 #include <plaisio/Moment.hpp>
@@ -9,17 +8,21 @@
 
 #include <vector>
 
-struct Beam {
-    Material material;
+namespace plaisio {
+    class Node;
 
-    Node *start;
-    Node *end;
+    struct Beam {
+        Material material;
 
-    // Everything below uses local coordinates and angles
-    // Every one has unique coords, forces in same coords are composed
-    std::vector<Force> forces;
-    std::vector<Moment> moments;
-    std::vector<UniformForce> uniformForces;
-};
+        Node *start;
+        Node *end;
+
+        // Everything below uses local coordinates and angles
+        // Every one has unique coords, forces in same coords are composed
+        std::vector<Force> forces;
+        std::vector<Moment> moments;
+        std::vector<UniformForce> uniformForces;
+    };
+}
 
 #endif//__BEAM_H

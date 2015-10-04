@@ -3,13 +3,23 @@
 
 #include <plaisio/Beam.hpp>
 #include <plaisio/Hinge.hpp>
-#include <plaisio/Force.hpp>
-#include <plaisio/Moment.hpp>
 
 #include <vector>
+#include <array>
 
 namespace plaisio {
-    struct Node {
+    class Node {
+        struct Resistance {
+            enum class Type {
+                None,
+                Spring,
+                Solid
+            };
+
+            Type type;
+            double springStiffness;
+        };
+
         double x;
         double z;
 
@@ -18,8 +28,29 @@ namespace plaisio {
         // Also, make sure no beam appears twice in hinges
         std::vector<Hinge> hinges;
 
+        union {
+            struct {
+                Resistance xResistance;
+                Resistance zResistance;
+                Resistance momentResistance;
+            };
+
+            std::array<Resistance, 3> resistances;
+        };
+
+    private:
         Force force;
         Moment moment;
+
+
+    public:
+        Node(double _x, double _z);
+
+        int freedom() const;
+        bool validate();
+
+        void addForce(Force f);
+        void addMoment(Moment m);
     };
 }
 

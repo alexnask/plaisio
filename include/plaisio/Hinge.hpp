@@ -3,8 +3,10 @@
 
 #include <vector>
 
-struct Hinge {
-    std::vector<Beam*> beams;
-};
+namespace plaisio {
+    struct Hinge {
+        std::vector<Beam*> beams;
+    };
+}
 
 #endif//__HINGE_H
