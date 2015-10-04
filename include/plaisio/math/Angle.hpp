@@ -4,9 +4,11 @@
 namespace plaisio {
 namespace math {
     // Wrapper over a double that does stuff like rollover M_PI*2, correct equality etc.
-    struct Angle {
+    class Angle {
+    private:
         double value;
 
+    public:
         Angle(double _value);
         Angle(double dz, double dx);
 
@@ -16,10 +18,12 @@ namespace math {
 
         bool operator == (const Angle& other) const;
 
+        operator double () const;
+
         // Utility function
-        double inline sin() const;
-        double inline cos() const;
-        double inline tan() const;
+        double sin() const;
+        double cos() const;
+        double tan() const;
 
     private:
         void fixAngle();

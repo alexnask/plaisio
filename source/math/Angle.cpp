@@ -34,15 +34,19 @@ namespace math {
         return value == other.value || value == M_PI*2 + other.value || 2*M_PI + value == other.value;
     }
 
-    double inline Angle::sin() const {
+    Angle::operator double () const {
+        return value;
+    }
+
+    double Angle::sin() const {
         return ::sin(value);
     }
 
-    double inline Angle::cos() const {
+    double Angle::cos() const {
         return ::cos(value);
     }
 
-    double inline Angle::tan() const {
+    double Angle::tan() const {
         return ::tan(value);
     }
 

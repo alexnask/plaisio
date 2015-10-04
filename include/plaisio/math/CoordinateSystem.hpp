@@ -13,9 +13,11 @@ namespace math {
         double originX;
         double originZ;
 
-        static CoordinateSystem GlobalSystem;
+        static CoordinateSystem Global;
 
         CoordinateSystem(Angle _xAngle, Angle _zAngle, double _originX, double _originZ);
+
+        bool operator == (const CoordinateSystem& other) const;
     };
 }
 }
