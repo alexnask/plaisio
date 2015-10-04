@@ -1,5 +1,5 @@
-#ifndef __ANGLE_HPP
-#define __ANGLE_HPP
+#ifndef __ANGLE_H
+#define __ANGLE_H
 
 namespace plaisio {
 namespace math {
@@ -27,4 +27,4 @@ namespace math {
 }
 }
 
-#endif//__ANGLE_HPP
+#endif//__ANGLE_H
