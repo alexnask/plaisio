@@ -9,24 +9,28 @@
 
 namespace plaisio {
     struct UniformForce {
-        double x;
-        double z;
+        // We use the vector for the magnitude and direction of the load
+        double startX;
+        double startZ;
 
-        double length;
-        double angle;
+        double endX;
+        double endZ;
 
-        double magnitude;
+        math::Vector vec;
 
-        UniformForce(double _x, double _z, double _length, double _angle, double _magnitude);
+        UniformForce(double _startX, double _startZ, double _endX, double _endZ, math::Vector _vec);
 
         UniformForce operator - () const;
         UniformForce operator + (const UniformForce& other) const;
         UniformForce operator - (const UniformForce& other) const;
 
-        std::pair<UniformForce, UniformForce> components(double xAngle = 0, double zAngle = M_PI/2) const;
+        // Convenience function
+        std::pair<UniformForce, UniformForce> components(const math::CoordinateSystem& coordSystem) const;
 
         // Note: Don't use this to find internal moments, please
         Force equivalentForce() const;
+
+        double length() const;
     };
 }
 

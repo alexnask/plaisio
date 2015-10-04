@@ -5,22 +5,25 @@
 #include <cmath>
 #include <utility>
 
+#include <plaisio/math/Vector.hpp>
+
 namespace plaisio {
     struct Force {
+        // Application point of the vector
         double x;
         double z;
 
-        // Angle from x-axis
-        double angle;
-        double magnitude;
+        // Force vector
+        math::Vector vec;
 
-        Force(double _x, double _z, double _angle, double _magnitude);
+        Force(double _x, double _z, math::Vector _vec);
 
         Force operator - () const;
         Force operator + (const Force& other) const;
         Force operator - (const Force& other) const;
 
-        std::pair<Force, Force> components(double xAngle = 0, double zAngle = M_PI/2) const;
+        // Convenience function
+        std::pair<Force, Force> components(const math::CoordinateSystem&  coordSystem) const;
     };
 }
 

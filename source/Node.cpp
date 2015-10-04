@@ -3,7 +3,7 @@
 #include <algorithm>
 
 namespace plaisio {
-    Node::Node(double _x, double _z) : x(_x), z(_z), beams(), hinges(), resistances(), force(x, z, 0, 0), moment(x, z, 0) {}
+    Node::Node(double _x, double _z) : x(_x), z(_z), beams(), hinges(), resistances(), force(x, z, { 0, 0 }), moment(x, z, 0) {}
 
     int Node::freedom() const {
         int constraints = 0;

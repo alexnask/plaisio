@@ -52,5 +52,13 @@ namespace math {
     Vector Vector::operator - (const Vector& other) const {
         return *this + (-other);
     }
+
+    Vector Vector::operator * (double multi) const {
+        return { multi * x, multi * z, coordSystem };
+    }
+
+    Vector Vector::operator / (double divi) const {
+        return { x / divi, z / divi, coordSystem };
+    }
 }
 }

@@ -23,6 +23,8 @@ namespace math {
         Vector operator - () const;
         Vector operator + (const Vector& other) const;
         Vector operator - (const Vector& other) const;
+        Vector operator * (double multi) const;
+        Vector operator / (double divi) const;
     };
 }
 }

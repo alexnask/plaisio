@@ -6,6 +6,9 @@
 #include <plaisio/Moment.hpp>
 #include <plaisio/UniformForce.hpp>
 
+#include <plaisio/math/CoordinateSystem.hpp>
+#include <plaisio/math/Angle.hpp>
+
 #include <vector>
 #include <utility>
 
@@ -18,16 +21,14 @@ namespace plaisio {
         Node *start;
         Node *end;
 
-        const double angle;
+        const math::Angle angle;
+        const math::CoordinateSystem coordSystem;
     private:
         // Everything below uses local coordinates and angles
         // Every one has unique coords, forces in same coords are composed
         std::vector<Force> forces;
         std::vector<Moment> moments;
         std::vector<UniformForce> uniformForces;
-
-        std::pair<double, double> coordsFromGlobal(double gX, double gZ) const;
-        double angleFromGlobal(double gAngle) const;
 
     public:
         Beam(Material _material, Node* _start, Node* _end);
