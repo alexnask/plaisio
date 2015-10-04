@@ -5,14 +5,17 @@
 
 namespace plaisio {
 namespace math {
-    // A coordinate system is just the counter clockwise angles of the x and z axes from the global x axis.
+    // A coordinate system holds information on the position and angles of the axes in relatio nto the global system.
     struct CoordinateSystem {
         Angle xAngle;
         Angle zAngle;
 
+        double originX;
+        double originZ;
+
         static CoordinateSystem GlobalSystem;
 
-        CoordinateSystem(Angle _xAngle, Angle _zAngle);
+        CoordinateSystem(Angle _xAngle, Angle _zAngle, double _originX, double _originZ);
     };
 }
 }
