@@ -8,7 +8,7 @@
 #include <array>
 
 namespace plaisio {
-    class Node {
+    struct Node {
         struct Resistance {
             enum class Type {
                 None,
