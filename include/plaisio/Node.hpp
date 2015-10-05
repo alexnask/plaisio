@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <array>
+#include <memory>
 
 namespace plaisio {
     struct Node {
@@ -23,7 +24,7 @@ namespace plaisio {
         double x;
         double z;
 
-        std::vector<Beam*> beams;
+        std::vector<std::shared_ptr<Beam>> beams;
         // TODO: Make sure all beams in hinges are in the beams vector
         // Also, make sure no beam appears twice in hinges
         std::vector<Hinge> hinges;
@@ -51,6 +52,8 @@ namespace plaisio {
 
         void addForce(Force f);
         void addMoment(Moment m);
+
+        void replaceBeam(std::shared_ptr<Beam> beam, std::shared_ptr<Beam> newBeam);
     };
 }
 

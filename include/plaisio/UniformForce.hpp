@@ -24,6 +24,8 @@ namespace plaisio {
         UniformForce operator + (const UniformForce& other) const;
         UniformForce operator - (const UniformForce& other) const;
 
+        bool operator == (const UniformForce& other) const;
+
         // Convenience function
         std::pair<UniformForce, UniformForce> components(const math::CoordinateSystem& coordSystem) const;
 

@@ -60,5 +60,9 @@ namespace math {
     Vector Vector::operator / (double divi) const {
         return { x / divi, z / divi, coordSystem };
     }
+
+    bool Vector::operator == (const Vector& other) const {
+        return x == other.x && z == other.z && coordSystem == other.coordSystem;
+    }
 }
 }

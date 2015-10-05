@@ -19,6 +19,11 @@ namespace plaisio {
         return *this + (-other);
     }
 
+    // TODO: change into same coord system before doing this?
+    bool Force::operator == (const Force& other) const {
+        return x == other.x && z == other.z && vec == other.vec;
+    }
+
     std::pair<Force, Force> Force::components(const math::CoordinateSystem& coordSystem) const {
         auto vecComponents = vec.inCoordSystem(coordSystem).getComponents();
         return { { x, z, vecComponents.first }, { x, z, vecComponents.second } };

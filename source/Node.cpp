@@ -1,5 +1,6 @@
 #include <plaisio/Node.hpp>
 
+#include <cassert>
 #include <algorithm>
 
 namespace plaisio {
@@ -62,5 +63,15 @@ namespace plaisio {
         }
 
         return true;
+    }
+
+    void Node::replaceBeam(std::shared_ptr<Beam> beam, std::shared_ptr<Beam> newBeam) {
+        assert(std::find(beams.begin(), beams.end(), beam) != beams.end());
+
+        for(auto& hinge: hinges) {
+            std::replace(hinge.beams.begin(), hinge.beams.end(), beam, newBeam);
+        }
+
+        std::replace(beams.begin(), beams.end(), beam, newBeam);
     }
 }

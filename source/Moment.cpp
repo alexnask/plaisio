@@ -24,6 +24,10 @@ namespace plaisio {
         return *this + (-other);
     }
 
+    bool Moment::operator == (const Moment& other) const {
+        return x == other.x && z == other.z && coordSystem == other.coordSystem;
+    }
+
     Moment Moment::inCoordSystem(const math::CoordinateSystem& newCoordSystem) const {
         auto newCoords = newCoordSystem.localCoordinates(x, z, coordSystem);
 

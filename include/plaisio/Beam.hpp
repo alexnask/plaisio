@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <utility>
+#include <memory>
 
 namespace plaisio {
     class Node;
@@ -18,8 +19,8 @@ namespace plaisio {
     struct Beam {
         Material material;
 
-        Node *start;
-        Node *end;
+        std::shared_ptr<Node> start;
+        std::shared_ptr<Node> end;
 
         const math::Angle angle;
         const math::CoordinateSystem coordSystem;
@@ -31,7 +32,7 @@ namespace plaisio {
         std::vector<UniformForce> uniformForces;
 
     public:
-        Beam(Material _material, Node* _start, Node* _end);
+        Beam(Material _material, std::shared_ptr<Node> _start, std::shared_ptr<Node> _end);
 
         double dx() const;
         double dz() const;
@@ -40,6 +41,11 @@ namespace plaisio {
         void addForce(const Force& f);
         void addMoment(const Moment& m);
         void addUniformForce(const UniformForce& uf);
+
+        // Returns a beam with inverted start and end nodes and the same loads.
+        Beam reverse() const;
+
+        bool operator == (const Beam& other) const;
     };
 }
 

@@ -21,6 +21,10 @@ namespace plaisio {
         return *this + (-other);
     }
 
+    bool UniformForce::operator == (const UniformForce& other) const {
+        return startX == other.startX && startZ == other.startZ && endX == other.endX && endZ == other.endZ && vec == other.vec;
+    }
+
     std::pair<UniformForce, UniformForce> UniformForce::components(const math::CoordinateSystem& coordSystem) const {
         auto vecComponents = vec.inCoordSystem(coordSystem).getComponents();
         return { { startX, startZ, endX, endZ, vecComponents.first }, { startX, startZ, endX, endZ, vecComponents.second } };

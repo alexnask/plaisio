@@ -2,10 +2,11 @@
 #define __HINGE_H
 
 #include <vector>
+#include <memory>
 
 namespace plaisio {
     struct Hinge {
-        std::vector<Beam*> beams;
+        std::vector<std::shared_ptr<Beam>> beams;
     };
 }
 

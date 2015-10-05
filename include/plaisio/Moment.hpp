@@ -18,6 +18,8 @@ namespace plaisio {
         Moment operator + (const Moment& other) const;
         Moment operator - (const Moment& other) const;
 
+        bool operator == (const Moment& other) const;
+
         Moment inCoordSystem(const math::CoordinateSystem& coordSystem) const;
     };
 }
