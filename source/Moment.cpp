@@ -3,19 +3,30 @@
 #include <cassert>
 
 namespace plaisio {
-    Moment::Moment(double _x, double _z, double _magnitude) : x(_x), z(_z), magnitude(_magnitude) {}
+    Moment::Moment(double _x, double _z, double _magnitude, math::CoordinateSystem _coordSystem) : x(_x), z(_z), magnitude(_magnitude), coordSystem(_coordSystem) {}
 
     Moment Moment::operator - () const {
-        return { x, z, -magnitude };
+        return { x, z, -magnitude, coordSystem };
     }
 
     Moment Moment::operator + (const Moment& other) const {
-        assert(x == other.x && z == other.z);
+        Moment localOther = other;
 
-        return { x, z, magnitude + other.magnitude };
+        if(localOther.coordSystem != coordSystem) {
+            localOther = localOther.inCoordSystem(coordSystem);
+        }
+        assert(x == localOther.x && z == localOther.z);
+
+        return { x, z, magnitude + localOther.magnitude, coordSystem };
     }
 
     Moment Moment::operator - (const Moment& other) const {
         return *this + (-other);
+    }
+
+    Moment Moment::inCoordSystem(const math::CoordinateSystem& newCoordSystem) const {
+        auto newCoords = newCoordSystem.localCoordinates(x, z, coordSystem);
+
+        return { newCoords.first, newCoords.second, magnitude, coordSystem };
     }
 }

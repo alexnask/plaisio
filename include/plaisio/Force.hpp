@@ -22,8 +22,9 @@ namespace plaisio {
         Force operator + (const Force& other) const;
         Force operator - (const Force& other) const;
 
-        // Convenience function
-        std::pair<Force, Force> components(const math::CoordinateSystem&  coordSystem) const;
+        // Convenience functions
+        std::pair<Force, Force> components(const math::CoordinateSystem& coordSystem) const;
+        Force inCoordSystem(const math::CoordinateSystem& coordSystem) const;
     };
 }
 

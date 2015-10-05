@@ -17,7 +17,7 @@ namespace math {
 
     CoordinateSystem CoordinateSystem::Global = { 0, M_PI/2, 0, 0 };
 
-    std::pair<double, double> CoordinateSystem::localCoordinates(double oX, double oZ, const CoordinateSystem& other) {
+    std::pair<double, double> CoordinateSystem::localCoordinates(double oX, double oZ, const CoordinateSystem& other) const {
         double dx = originX - other.originX;
         double dz = originZ - other.originZ;
 
@@ -36,6 +36,10 @@ namespace math {
 
     bool CoordinateSystem::operator == (const CoordinateSystem& other) const {
         return xAngle == other.xAngle && zAngle == other.zAngle && originX == other.originX && originZ == originZ;
+    }
+
+    bool CoordinateSystem::operator != (const CoordinateSystem& other) const {
+        return !(*this == other);
     }
 }
 }

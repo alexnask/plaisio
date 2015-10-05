@@ -23,4 +23,10 @@ namespace plaisio {
         auto vecComponents = vec.inCoordSystem(coordSystem).getComponents();
         return { { x, z, vecComponents.first }, { x, z, vecComponents.second } };
     }
+
+    Force Force::inCoordSystem(const math::CoordinateSystem& coordSystem) const {
+        auto newCoords = coordSystem.localCoordinates(x, z, vec.coordSystem);
+
+        return { newCoords.first, newCoords.second, vec.inCoordSystem(coordSystem) };
+    }
 }

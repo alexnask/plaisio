@@ -37,9 +37,9 @@ namespace plaisio {
         double dz() const;
 
         // These funcitons tmake sure we have no duplicates (eg 2 forces with the same application point) as well as transform global to lcoal coordinates
-        void addForce(Force f);
-        void addMoment(Moment m);
-        void addUniformForce(UniformForce uf);
+        void addForce(const Force& f);
+        void addMoment(const Moment& m);
+        void addUniformForce(const UniformForce& uf);
     };
 }
 

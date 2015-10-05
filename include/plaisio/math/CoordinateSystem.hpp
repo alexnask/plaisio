@@ -19,9 +19,10 @@ namespace math {
 
         CoordinateSystem(Angle _xAngle, Angle _zAngle, double _originX, double _originZ);
 
-        std::pair<double, double> localCoordinates(double oX, double oZ, const CoordinateSystem& other = Global);
+        std::pair<double, double> localCoordinates(double oX, double oZ, const CoordinateSystem& other = Global) const;
 
         bool operator == (const CoordinateSystem& other) const;
+        bool operator != (const CoordinateSystem& other) const;
     };
 }
 }
