@@ -14,6 +14,8 @@ namespace plaisio {
 
         // Sort the nodes and beams
         void finalizeInput();
+
+        Frame();
     };
 }
 

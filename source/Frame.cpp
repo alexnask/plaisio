@@ -12,6 +12,8 @@ static bool node_less_than(std::shared_ptr<plaisio::Node> one, std::shared_ptr<p
 }
 
 namespace plaisio {
+    Frame::Frame() : nodes(), beams() {}
+
     void Frame::finalizeInput() {
         std::sort(nodes.begin(), nodes.end(), node_less_than);
 

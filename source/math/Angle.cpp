@@ -39,15 +39,15 @@ namespace math {
     }
 
     double Angle::sin() const {
-        return ::sin(value);
+        return std::sin(value);
     }
 
     double Angle::cos() const {
-        return ::cos(value);
+        return std::cos(value);
     }
 
     double Angle::tan() const {
-        return ::tan(value);
+        return std::tan(value);
     }
 
     void Angle::fixAngle() {
