@@ -28,4 +28,12 @@ namespace plaisio {
             }
         }
     }
+
+    void Frame::addNode(Node node) {
+        nodes.emplace_back(std::make_shared<Node>(std::move(node)));
+    }
+
+    void Frame::addBeam(Beam beam) {
+        beams.emplace_back(std::make_shared<Beam>(std::move(beam)));
+    }
 }
